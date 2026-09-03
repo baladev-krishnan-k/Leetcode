@@ -13,7 +13,6 @@ class Solution {
                 o+=2;
             }else if(nums[e]%2==0) e+=2;
             else if(nums[o]%2!=0) o+=2;
-
         }return nums;
         
     }
