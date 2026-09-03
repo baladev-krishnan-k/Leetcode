@@ -2,17 +2,20 @@ class Solution {
     public int[] sortArrayByParityII(int[] nums) {
         int n=nums.length;
         int r[]=new int[n];
+        int e=0;
+        int o=1;
         int i=0;
-        int j=1;
-        for(int k=0;k<n;k++){
-            if(nums[k]%2==0){
-                r[i]=nums[k];
-                i+=2;
-            }else{
-                r[j]=nums[k];
-                j+=2;
-            }
-        }return r;
+        while(e<n && o<n){
+            if(nums[e]%2!=0 && nums[o]%2==0){
+                int t=nums[e];
+                nums[e]=nums[o];
+                nums[o]=t;
+                e+=2;
+                o+=2;
+            }else if(nums[e]%2==0) e+=2;
+            else if(nums[o]%2!=0) o+=2;
+
+        }return nums;
         
     }
 }
