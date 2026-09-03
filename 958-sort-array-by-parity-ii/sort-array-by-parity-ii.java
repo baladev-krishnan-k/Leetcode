@@ -1,19 +1,18 @@
 class Solution {
     public int[] sortArrayByParityII(int[] nums) {
-        Stack<Integer> s=new Stack();
         int n=nums.length;
-        for(int i=0;i<n;i++){
-            if(nums[i]%2==0){
-                s.push(nums[i]);
+        int r[]=new int[n];
+        int i=0;
+        int j=1;
+        for(int k=0;k<n;k++){
+            if(nums[k]%2==0){
+                r[i]=nums[k];
+                i+=2;
+            }else{
+                r[j]=nums[k];
+                j+=2;
             }
-        }for(int i=0;i<n;i++){
-            if(nums[i]%2!=0){
-                s.push(nums[i]);
-            }
-        }for(int i=1;i<n;i=i+2){
-            nums[i]=s.pop();
-        }for(int i=0;i<n;i=i+2){
-            nums[i]=s.pop();
-        }return nums;
+        }return r;
+        
     }
 }
