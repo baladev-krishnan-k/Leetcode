@@ -3,10 +3,13 @@ class Solution {
         int n=nums.length;
         int d[]=new int[n];
         if(n==1)return nums[0];
-        d[0]=nums[0];
-        d[1]=Math.max(nums[0],nums[1]);
+        int prev2=nums[0];
+        int prev1=Math.max(nums[0],nums[1]);
+        int curr=prev1;
         for(int i=2;i<n;i++){
-            d[i]=Math.max(d[i-1],d[i-2]+nums[i]);
-        }return d[n-1];
+            curr=Math.max(prev1,prev2+nums[i]);
+            prev2=prev1;
+            prev1=curr;
+        }return curr;
     }
 }
